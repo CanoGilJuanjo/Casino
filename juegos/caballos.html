@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuesta de Caballos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(35, 34, 34);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 80%;
+            color: white;
+            max-width: 800px;
+            background-color: #111;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ffffff33;
+            margin-top: 10%;
+            padding: 20px;
+            text-align: center;
+            position: relative; /* Añadido para posicionar el botón "Volver" */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .horses {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            
+        }
+
+        .horse {
+            width: 150px;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            font-size: large;
+            height: fit-content;
+            padding: 30px;
+        }
+
+        .horse:hover {
+            background-color: #347636;
+        }
+
+        .horse-name {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .betting-area {
+            margin: 20px 0;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #295d2b;
+        }
+
+        button:disabled{
+            background-color: #295d2b;
+            cursor: auto;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .carrera{
+            position: absolute;
+            width: 100%;
+            height: fit-content;
+            top: 10%;
+            left: 0;
+            background-color: #928f8f;
+            border: none;
+            color: white;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .caballo1, .caballo2, .caballo3 {
+            width: 50px;
+            height: 50px;
+            top: 0;
+            left: 0;
+            font-size: 30px;
+            transition: margin-left 1s;
+        }
+        .caballo2, .caballo3 {
+            padding-top: 20px;
+        }
+
+        #start-race:disabled{
+            background-color: #123312;
+            cursor:auto;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+
+        input[type="number"]:hover{
+            box-shadow: 0px 0px 3px 4px #9c9c9c;
+        }
+
+        #caballoApuesta1:disabled,
+        #caballoApuesta2:disabled,
+        #caballoApuesta3:disabled{
+            background-color: #123312;
+            cursor:auto;
+        }
+        #jugador{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+        .horse-image{
+            font-size: 30px;
+        }
+
+    </style>
+    <link rel="stylesheet" href="..\volver.css">
+</head>
+<body>
+    <button id="volver">Volver</button>
+    <div class="carrera">
+        <div class="caballo1">🐴</div>
+        <div class="caballo2">🦄</div>
+        <div class="caballo3">🦓</div>
+    </div>
+    <div class="container">
+        <h1 id="jugador">Jugador : </h1>
+        <div class="horses">
+            <button class="horse" id="caballoApuesta1">
+                <div class="horse-name">Valiente</div>
+                <div class="horse-image">🐴</div>
+            </button>
+            <button class="horse" id="caballoApuesta2">
+                <div class="horse-name">Cid</div>
+                <div class="horse-image">🦄</div>
+            </button>
+            <button class="horse" id="caballoApuesta3">
+                <div class="horse-name">Perdigon</div>
+                <div class="horse-image">🦓</div>
+            </button>
+        </div>
+        <div class="betting-area">
+            <input type="number" id="bet-amount" placeholder="Apuesta">
+            <button id="bet-button">Apostar</button>
+        </div>
+        <button id="start-race">Iniciar Carrera</button>
+        <p id="textoApuesta"></p>
+    </div>
+
+    <script src="../scripts/tratamientoJSON.js"></script>
+    <script src="..\scripts\Caballos.js"></script>
+</body>
+</html>

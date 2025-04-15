@@ -1,0 +1,21 @@
+/* Estilos para el botón "Volver" */
+#volver {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #c3ca58;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#volver:hover {
+    background-color: #919741;
+}

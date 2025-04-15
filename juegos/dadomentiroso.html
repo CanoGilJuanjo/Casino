@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dado Mentiroso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            
+            background-color: rgb(35, 34, 34);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #111;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ffffff33;
+            color: white;
+            text-align: center;
+        }
+        .dice-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .dice {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            background: #ddd;
+            color: black;
+            border-radius: 8px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #2c6b2f;
+        }
+        button:disabled{
+            background-color: #295d2b;
+            cursor: auto;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+
+        input[type="number"]:hover{
+            box-shadow: 0px 0px 3px 4px #9c9c9c;
+        }
+    </style>
+    <link rel="stylesheet" href="../volver.css" type="text/css">
+</head>
+<body>
+    <button id="volver">Volver</button>
+    <div class="container">
+        <h1 id="jugador">Jugador: </h1>
+        <div class="dice-container">
+            <div class="dice" id="dadoJugador1">?</div>
+            <div class="dice" id="dadoJugador2">?</div>
+            <div class="dice" id="dadoJugador3">?</div>
+            <div class="dice" id="dadoJugador4">?</div>
+            <div class="dice" id="dadoJugador5">?</div>
+        </div>
+        <h1>Crupier</h1>
+        <div class="dice-container">
+            <div class="dice" id="dadoCrupier1">?</div>
+            <div class="dice" id="dadoCrupier2">?</div>
+            <div class="dice" id="dadoCrupier3">?</div>
+            <div class="dice" id="dadoCrupier4">?</div>
+            <div class="dice" id="dadoCrupier5">?</div>
+        </div>
+        <div class="betting-area">
+            <input type="number" id="bet-amount" placeholder="Apuesta">
+            <button id="bet-button">Apostar</button>
+        </div>
+        <button id="tirarDados">Tirar Dados</button>
+        <p id="apuesta"></p>
+    </div>
+
+    <script src="../scripts/tratamientoJSON.js"></script>
+    <script src="../scripts/DadoMentiroso.js"></script>
+</body>
+</html>
