@@ -12,6 +12,10 @@ addEventListener("DOMContentLoaded", () => {
         location.href = "juegos/banco.html"
     })
 
+    document.getElementById("Ruleta").addEventListener("click", () => {
+        location.href = "juegos/ruleta.html"
+    })
+
     var Jugador;
     if(getJSONFromLocalStorage("jugador") != null){
         Jugador = getJSONFromLocalStorage("jugador")

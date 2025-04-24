@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruleta de la Suerte</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(35, 34, 34);
+            color: white;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        #wheel {
+            margin: 20px auto;
+            width: 300px;
+            height: 300px;
+            border-radius: 100%;
+            border: 5px solid #bebebe;
+            position: relative;
+            background: conic-gradient(
+                #ff0000 0% 25%, 
+                #00ff00 25% 50%, 
+                #0000ff 50% 75%, 
+                #ffff00 75% 100%
+            );
+        }
+        #pointer {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 30px solid #333;
+            margin: 0 auto;
+            position: relative;
+            top: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ruleta de la Suerte</h1>
+    <div id="pointer"></div>
+    <div id="wheel"></div>
+    <button onclick="spinWheel()">Girar la Ruleta</button>
+    <p id="result"></p>
+
+    <script>
+        function spinWheel() {
+            const wheel = document.getElementById('wheel');
+            const result = document.getElementById('result');
+            const randomDegree = Math.floor(Math.random() * 360);
+            const sectors = ['Rojo', 'Verde', 'Azul', 'Amarillo'];
+            const adjustedDegree = (randomDegree + 90) % 360;
+            var sectorIndex = Math.floor(adjustedDegree / 90);
+
+            console.log(wheel.style.transform);
+            if(sectorIndex == 1){
+                sectorIndex = 3
+            }else if(sectorIndex == 3){
+                sectorIndex = 1
+            }
+
+            wheel.style.transition = 'transform 3s ease-out';
+            wheel.style.transform = `rotate(${3600+randomDegree}deg)`;
+
+            setTimeout(() => {
+                result.textContent = `¡Cayó en ${sectors[sectorIndex]}!`;
+                wheel.style.transition = 'none';
+                wheel.style.transform = `rotate(${randomDegree}deg)`;
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

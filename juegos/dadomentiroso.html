@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dado Mentiroso</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -79,27 +80,27 @@
     <button id="volver">Volver</button>
     <div class="container">
         <h1 id="jugador">Jugador: </h1>
-        <div class="dice-container">
-            <div class="dice" id="dadoJugador1">?</div>
-            <div class="dice" id="dadoJugador2">?</div>
-            <div class="dice" id="dadoJugador3">?</div>
-            <div class="dice" id="dadoJugador4">?</div>
-            <div class="dice" id="dadoJugador5">?</div>
+        <div class="dice-container" id="jugador-container">
+            <div class="dice">?</div>
+            <div class="dice">?</div>
+            <div class="dice">?</div>
+            <div class="dice">?</div>
+            <div class="dice">?</div>
         </div>
         <h1>Crupier</h1>
-        <div class="dice-container">
-            <div class="dice" id="dadoCrupier1">?</div>
-            <div class="dice" id="dadoCrupier2">?</div>
-            <div class="dice" id="dadoCrupier3">?</div>
-            <div class="dice" id="dadoCrupier4">?</div>
-            <div class="dice" id="dadoCrupier5">?</div>
+        <div class="dice-container" id="crupier-container">
+            <div class="dice">?</div>
+            <div class="dice">?</div>
+            <div class="dice">?</div>
+            <div class="dice">?</div>
+            <div class="dice">?</div>
         </div>
         <div class="betting-area">
             <input type="number" id="bet-amount" placeholder="Apuesta">
             <button id="bet-button">Apostar</button>
         </div>
         <button id="tirarDados">Tirar Dados</button>
-        <p id="apuesta"></p>
+        <p id="apuestaTexto"></p>
     </div>
 
     <script src="../scripts/tratamientoJSON.js"></script>

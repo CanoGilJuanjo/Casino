@@ -70,14 +70,14 @@ addEventListener("DOMContentLoaded", () => {
 
 
     apuesta.addEventListener("click",()=>{
-        if(fichas.value != null && fichas.value != undefined && caballoApuesta1.disabled||caballoApuesta2.disabled||caballoApuesta3.disabled){
+        if(fichas.value != null && fichas.value != undefined && fichas.value != 0 && (caballoApuesta1.disabled||caballoApuesta2.disabled||caballoApuesta3.disabled)){
             jugar.disabled = false
             fichas.disabled = true
             apuesta.disabled = true
             textoApuesta.innerHTML = "Apuesta: "+fichas.value+" fichas al caballo "+caballoApostado.childNodes[3].innerHTML
             Jugador.fichas -= parseInt(fichas.value)
             tituloJugador.innerHTML = "Jugador : "+Jugador.fichas+"F"
-        }else if(fichas.value == null || fichas.value == undefined){
+        }else if(fichas.value == null || fichas.value == undefined || fichas.value == 0){
             alert("Introduce una cantidad de fichas")
         }else if(!caballoApuesta1.disabled&&!caballoApuesta2.disabled&&!caballoApuesta3.disabled){
             alert("Selecciona un caballo")
@@ -85,6 +85,7 @@ addEventListener("DOMContentLoaded", () => {
     })
     var intervalCaballo1,intervalCaballo2,intervalCaballo3;
     jugar.addEventListener("click",()=>{
+        saveJSONToLocalStorage("jugador",Jugador)
         jugar.disabled = true
         caballo1.style.marginLeft = 0+"px"
         caballo2.style.marginLeft = 0+"px"
@@ -93,6 +94,7 @@ addEventListener("DOMContentLoaded", () => {
         intervalCaballo1 = setInterval(()=>{
             caballo1.style.marginLeft = (parseInt(caballo1.style.marginLeft)+Math.floor(Math.random()*100))+"px"
             if((parseInt(caballo1.style.marginLeft)+parseInt(caballo1.clientWidth)) >= parseInt(document.querySelector(".carrera").clientWidth)){
+                caballo1.style.marginLeft = parseInt(document.querySelector(".carrera").clientWidth)-parseInt(caballo1.clientWidth)+"px"
                 clearInterval(intervalCaballo3)
                 clearInterval(intervalCaballo2)
                 clearInterval(intervalCaballo1)
@@ -108,6 +110,7 @@ addEventListener("DOMContentLoaded", () => {
         intervalCaballo2 = setInterval(()=>{
             caballo2.style.marginLeft = (parseInt(caballo2.style.marginLeft)+Math.floor(Math.random()*100))+"px"
             if((parseInt(caballo2.style.marginLeft)+parseInt(caballo2.clientWidth)) >= parseInt(document.querySelector(".carrera").clientWidth)){
+                caballo2.style.marginLeft = parseInt(document.querySelector(".carrera").clientWidth)-parseInt(caballo2.clientWidth)+"px"
                 clearInterval(intervalCaballo3)
                 clearInterval(intervalCaballo2)
                 clearInterval(intervalCaballo1)
@@ -123,6 +126,7 @@ addEventListener("DOMContentLoaded", () => {
         intervalCaballo3 = setInterval(()=>{
             caballo3.style.marginLeft = (parseInt(caballo3.style.marginLeft)+Math.floor(Math.random()*100))+"px"
             if((parseInt(caballo3.style.marginLeft)+parseInt(caballo3.clientWidth)) >= (parseInt(document.querySelector(".carrera").clientWidth))){
+                caballo3.style.marginLeft = parseInt(document.querySelector(".carrera").clientWidth)-parseInt(caballo3.clientWidth)+"px"
                 clearInterval(intervalCaballo3)
                 clearInterval(intervalCaballo2)
                 clearInterval(intervalCaballo1)
