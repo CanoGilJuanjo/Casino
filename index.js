@@ -16,18 +16,6 @@ addEventListener("DOMContentLoaded", () => {
         location.href = "juegos/ruleta.html"
     })
 
-    var Jugador;
-    if(getJSONFromLocalStorage("jugador") != null){
-        Jugador = getJSONFromLocalStorage("jugador")
-    }else{
-        Jugador = {
-            cartas:[],
-            deuda:0,
-            dados:[],
-            nombre:"J1",
-            fichas:100
-        }
-        saveJSONToLocalStorage("jugador",Jugador)
-    }
+    var Jugador = jugador();
     document.getElementById("balance").innerHTML = Jugador.fichas
 })

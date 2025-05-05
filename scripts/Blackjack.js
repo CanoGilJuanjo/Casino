@@ -1,56 +1,5 @@
 addEventListener("DOMContentLoaded",function(){
-    var Jugador;
-    if(getJSONFromLocalStorage("jugador") != null){
-        Jugador = getJSONFromLocalStorage("jugador")
-        Jugador.puntos=()=>{
-            let puntos = 0;
-            let numeroAces = 0;
-
-            for(let carta of Jugador.cartas){
-                if(carta.valor == 1){
-                    puntos += 11;
-                    numeroAces++;
-                } else {
-                    puntos += carta.valor;
-                }
-            }
-
-            while(puntos > 21 && numeroAces > 0){
-                puntos -= 10;
-                numeroAces--;
-            }
-
-            return puntos;
-        }
-    }else{
-        Jugador={
-            cartas:[],
-            deuda:0,
-            dados:[],
-            puntos:()=>{
-                let puntos = 0;
-                let numeroAces = 0;
-    
-                for(let carta of Jugador.cartas){
-                    if(carta.valor == 1){
-                        puntos += 11;
-                        numeroAces++;
-                    } else {
-                        puntos += carta.valor;
-                    }
-                }
-    
-                while(puntos > 21 && numeroAces > 0){
-                    puntos -= 10;
-                    numeroAces--;
-                }
-                
-                return puntos;
-            },
-            nombre:"J1",
-            fichas:100
-        }
-    }
+    var Jugador = jugador();
     var Crupier={
         cartas:[],
         puntos:()=>{

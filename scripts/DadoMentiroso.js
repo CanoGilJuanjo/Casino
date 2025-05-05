@@ -1,30 +1,5 @@
 addEventListener("DOMContentLoaded", function () {
-    var Jugador;
-    if(getJSONFromLocalStorage("jugador") != null){
-        Jugador = getJSONFromLocalStorage("jugador")
-        Jugador.puntos = ()=>{
-            let puntos = 0;
-            for(let carta of Jugador.cartas){
-                puntos += carta.valor
-            }
-            return puntos;
-        }
-    }else{
-        Jugador={
-            cartas:[],
-            deuda:0,
-            dados:[],
-            puntos:()=>{
-                let puntos = 0;
-                for(let carta of Jugador.cartas){
-                    puntos += carta.valor
-                }
-                return puntos;
-            },
-            nombre:"J1",
-            fichas:100
-        }
-    }
+    var Jugador = jugador();
 
     var Crupier = {
         dados:[]

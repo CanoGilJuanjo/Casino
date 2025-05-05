@@ -1,30 +1,5 @@
 addEventListener("DOMContentLoaded", () => {
-    var Jugador;
-    if(getJSONFromLocalStorage("jugador") != null){
-        Jugador = getJSONFromLocalStorage("jugador")
-        Jugador.puntos = ()=>{
-            let puntos = 0;
-            for(let carta of Jugador.cartas){
-                puntos += carta.valor
-            }
-            return puntos;
-        }
-    }else{
-        Jugador={
-            cartas:[],
-            deuda:0,
-            dados:[],
-            puntos:()=>{
-                let puntos = 0;
-                for(let carta of Jugador.cartas){
-                    puntos += carta.valor
-                }
-                return puntos;
-            },
-            nombre:"J1",
-            fichas:100
-        }
-    }
+    var Jugador = jugador();
     
     //Obtenemos todos los elementos necesarios del DOM
     var caballoApuesta1 = document.querySelector("#caballoApuesta1")
@@ -77,8 +52,8 @@ addEventListener("DOMContentLoaded", () => {
             textoApuesta.innerHTML = "Apuesta: "+fichas.value+" fichas al caballo "+caballoApostado.childNodes[3].innerHTML
             Jugador.fichas -= parseInt(fichas.value)
             tituloJugador.innerHTML = "Jugador : "+Jugador.fichas+"F"
-        }else if(fichas.value == null || fichas.value == undefined || fichas.value == 0){
-            alert("Introduce una cantidad de fichas")
+        }else if(fichas.value == null || fichas.value == undefined || fichas.value == 0 || fichas.value > Jugador.fichas){
+            alert("Introduce una cantidad de fichas valida")
         }else if(!caballoApuesta1.disabled&&!caballoApuesta2.disabled&&!caballoApuesta3.disabled){
             alert("Selecciona un caballo")
         }
