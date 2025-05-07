@@ -18,7 +18,7 @@ Apuesta por el color que más te guste y haz girar la ruleta, si tienes suerte t
 ¿Te quedaste sin fichas? No te preocupes, el banco está aquí para ayudarte... siempre y cuando no tengas deudas pendientes.
 
 ---
-[!NOTE] 
+**NOTE** 
 Este juego está diseñado para que te diviertas y pongas a prueba tu suerte y estrategia. Recuerda que todo es virtual, así que no hay riesgo de perder dinero real. ¡Disfruta y que la suerte esté de tu lado! 🍀
 
 Creado por polloslokos2015:
