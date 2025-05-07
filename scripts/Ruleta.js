@@ -133,14 +133,12 @@ addEventListener('DOMContentLoaded', function() {
             wheel.style.transform = `rotate(${randomDegree}deg)`;
             tituloJugador.innerHTML = "Jugador: "+Jugador.fichas + "F";
             ruleta.disabled = true
-            var eventoClick = new MouseEvent("click")
+            let eventoClick = new MouseEvent("click")
             resetear.dispatchEvent(eventoClick);
             cantidadApuesta.disabled = false
             botonApuesta.disabled = false
         }, 3000);
     })
-
-
 
     document.querySelector("#volver").addEventListener("click",()=>{this.location.href = "../index.html"})
 })

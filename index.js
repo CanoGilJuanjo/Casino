@@ -18,4 +18,10 @@ addEventListener("DOMContentLoaded", () => {
 
     var Jugador = jugador();
     document.getElementById("balance").innerHTML = Jugador.fichas
+
+
+    document.getElementById("volver").addEventListener("click", () => {
+        localStorage.clear()
+        location.reload()
+    })
 })

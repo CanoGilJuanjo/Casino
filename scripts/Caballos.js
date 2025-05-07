@@ -45,7 +45,7 @@ addEventListener("DOMContentLoaded", () => {
 
 
     apuesta.addEventListener("click",()=>{
-        if(fichas.value != null && fichas.value != undefined && fichas.value != 0 && (caballoApuesta1.disabled||caballoApuesta2.disabled||caballoApuesta3.disabled)){
+        if(fichas.value != null && fichas.value <= Jugador.fichas && fichas.value != undefined && fichas.value != 0 && (caballoApuesta1.disabled||caballoApuesta2.disabled||caballoApuesta3.disabled)){
             jugar.disabled = false
             fichas.disabled = true
             apuesta.disabled = true

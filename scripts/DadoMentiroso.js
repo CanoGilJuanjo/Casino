@@ -40,11 +40,10 @@ addEventListener("DOMContentLoaded", function () {
     })
 
     var turnoJugador = false
-
     var victoria = false
-
     let cara = caraAnterior
     let numeroDados = numeroAnterior
+    
     tirarDados.addEventListener("click",()=>{
         if(!datosAnteriores){
             tirarDados.disabled = true

@@ -21,7 +21,6 @@ addEventListener("DOMContentLoaded", ()=>{
             deuda = (parseInt(cantidad.value)+parseInt(cantidad.value)*0.1);
             devolver.innerHTML = "Tendra que devolver: "+deuda+"F"
             pedir.disabled = false
-            pedir.childNodes[1]
         }else if(parseInt(cantidad.value) > 1000){
             document.querySelector("#resultado").innerHTML = "La cantidad de fichas supera el maximo de 1000F"
             pedir.disabled = true
